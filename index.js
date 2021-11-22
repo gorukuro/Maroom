@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const fs = require("fs");
+const express = require("express");
+const app = new express();
 bot.prefix = "MMM";
 
 
@@ -16,6 +18,7 @@ for( const file of commandFiles){
 // event listener
 bot.on("ready", ()=> {
   console.log(JSON.stringify(bot.user.username + " is ready"));
+  app.listen(3000)
 });
 
 bot.on("message", msg => {
@@ -23,6 +26,12 @@ bot.on("message", msg => {
     // console.log(msg.content);
     require("./handler.js")(msg, bot);
   }
+})
+
+app.get("/", (req, resp)=>{
+  return resp.json({
+    status: "success"
+  })
 })
 
 
