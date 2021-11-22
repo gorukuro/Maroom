@@ -35,11 +35,24 @@ bot.on("message", msg => {
 
 app.get("/", (req, resp)=>{
   fs.readFile("./cntl.txt", (err,cntl)=> {
-    var description = `<pre>${cntl}</pre><br>
-    BOT kang tidur di Pois, GB_Sources.<br>
+    var description = `<pre >${cntl}</pre>
+    <b>${bot.user.username}#${bot.user.discriminator}</b><br>
+    BOT kang tidur di Pois.<br>
     ma prefix is <code>'${bot.prefix}'</code>.<br>
     avail command [${Array.from(bot.commands.keys()).map(e=>"<code>'"+e+"'</code>").join(", ")}]<br>`
-    return resp.send(description)
+    return resp.send(`
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        body{
+          font-family: "Arial"
+        }
+      </style>
+    </head>
+    <body>
+     <center>${description}</center>
+    </body>
+    `)
   });
 })
 
