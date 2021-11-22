@@ -10,7 +10,7 @@ module.exports = {
     if(!permissions.has("CONNECT")) return msg.channel.send("lah gbs konek");
 
     // join voiceChannel
-    bot.user.setActivity(`Tidur di ${voiceChannel.name}`);
+    // bot.user.setActivity(`Tidur di ${voiceChannel.name}`);
     return voiceChannel.join();
   }
 }

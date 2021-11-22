@@ -5,7 +5,7 @@ module.exports = {
     const voiceChannel = msg.guild.me.voiceChannel;
     if(voiceChannel){
       voiceChannel.leave();
-      bot.user.setActivity(`Berselancar lagi Kawand`);
+      // bot.user.setActivity(`Berselancar lagi Kawand`);
     }
   }
 }
