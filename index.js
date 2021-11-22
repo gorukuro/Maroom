@@ -19,6 +19,7 @@ for( const file of commandFiles){
 // event listener
 bot.on("ready", ()=> {
   console.log(JSON.stringify(bot.user.username + " is ready"));
+  console.log(bot.user);
   app.listen(_PORT, () => console.log("listen to port: "+_PORT))
 });
 
@@ -29,10 +30,17 @@ bot.on("message", msg => {
   }
 })
 
+
+// read cntl
+
 app.get("/", (req, resp)=>{
-  return resp.json({
-    status: "success"
-  })
+  fs.readFile("./cntl.txt", (err,cntl)=> {
+    var description = `<pre>${cntl}</pre><br>
+    BOT kang tidur di Pois, GB_Sources.<br>
+    ma prefix is <code>'${bot.prefix}'</code>.<br>
+    avail command [${Array.from(bot.commands.keys()).map(e=>"<code>'"+e+"'</code>").join(", ")}]<br>`
+    return resp.send(description)
+  });
 })
 
 
