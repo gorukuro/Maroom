@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const fs = require("fs");
 const express = require("express");
 const app = new express();
+const _PORT = process.env.PORT || 3000;
 bot.prefix = "MMM";
 
 
@@ -18,7 +19,7 @@ for( const file of commandFiles){
 // event listener
 bot.on("ready", ()=> {
   console.log(JSON.stringify(bot.user.username + " is ready"));
-  app.listen(3000)
+  app.listen(_PORT, () => console.log("listen to port: "+_PORT))
 });
 
 bot.on("message", msg => {
