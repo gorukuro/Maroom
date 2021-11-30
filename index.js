@@ -4,7 +4,7 @@ const fs = require("fs");
 const express = require("express");
 const app = new express();
 const _PORT = process.env.PORT || 3000;
-bot.prefix = "MMM";
+bot.prefix = "MmM";
 
 
 // register command
