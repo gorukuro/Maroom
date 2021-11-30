@@ -1,5 +1,10 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const bot = new Discord.Client({
+   ws: {
+        $browser: "Discord iOS"
+    }
+});
+
 const fs = require("fs");
 const express = require("express");
 const app = new express();
