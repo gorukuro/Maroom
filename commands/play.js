@@ -1,5 +1,4 @@
 // init require
-const { self_id } = require("../server_setting.json");
 
 // export module
 module.exports = {
