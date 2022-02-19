@@ -23,7 +23,7 @@ module.exports = {
 
     try {
       voiceChannel.join().then(connection => {
-        const stream = !args.join().includes(/http(s)?\:\/\//) || args.join().includes("youtube") 
+        const stream = !(/http(s)?\:\/\//).test(args.join()) || args.join().includes("youtube") 
           ? ytdl(args.join(), { filter: "audioonly" })
           : args.join();
         // console.log(stream);
