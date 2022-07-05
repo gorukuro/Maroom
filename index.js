@@ -1,5 +1,10 @@
-const Discord = require("discord.js");
+const { Client } = require('legend.js');
+const {Intents} = require("discord.js");
+
 const bot = new Discord.Client({
+  loginAsUserAccount: true,
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  shardCount: 1,
    ws: {
         $browser: "Discord iOS"
     }
